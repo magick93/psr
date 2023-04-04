@@ -9,19 +9,19 @@ class TestBeginGame(unittest.TestCase):
     def test_paper(self, mock_input):
         with patch('sys.stdout', new=io.StringIO()) as fake_output:
             begin_game()
-            self.assertIn("You chose Paper.", fake_output.getvalue())
+            self.assertIn("Your move: PAPER", fake_output.getvalue())
 
     @patch('builtins.input', return_value='s')
     def test_scissors(self, mock_input):
         with patch('sys.stdout', new=io.StringIO()) as fake_output:
             begin_game()
-            self.assertIn("You chose Scissors.", fake_output.getvalue())
+            self.assertIn("Your move: SCISSORS", fake_output.getvalue())
 
     @patch('builtins.input', return_value='r')
     def test_rock(self, mock_input):
         with patch('sys.stdout', new=io.StringIO()) as fake_output:
             begin_game()
-            self.assertIn("You chose Rock.", fake_output.getvalue())
+            self.assertIn("Your move: ROCK", fake_output.getvalue())
 
 
 
