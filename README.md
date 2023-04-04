@@ -12,3 +12,5 @@ Paper, Scissors, Rock
 # To play...
 
 `python psr.py play`
+
+If you need help, ``python psr.py rules` or `python psr.py --help`
