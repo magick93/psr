@@ -3,6 +3,7 @@ from pydantic import ValidationError
 
 from controller.GameRuleEngine import GameRuleEngine
 from models.Move import Move
+from models.Result import Result
 # from psr import GameRuleEngine, Move
 
 class TestGameRuleEngine(unittest.TestCase):
@@ -27,12 +28,12 @@ class TestGameRuleEngine(unittest.TestCase):
     def test_human_player_wins(self):
         # Test that the GameRuleEngine correctly identifies a human player win
         game = GameRuleEngine(human_player=Move.PAPER, computer_player=Move.ROCK)
-        self.assertEqual(game.determine_winner(), "You win!")
+        self.assertEqual(game.determine_winner(), Result.WIN)
 
     def test_computer_player_wins(self):
         # Test that the GameRuleEngine correctly identifies a computer player win
         game = GameRuleEngine(human_player=Move.SCISSORS, computer_player=Move.ROCK)
-        self.assertEqual(game.determine_winner(), "Computer wins!")
+        self.assertEqual(game.determine_winner(), Result.LOSE)
 
 
 
