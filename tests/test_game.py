@@ -1,6 +1,9 @@
 import unittest
 from pydantic import ValidationError
-from psr import GameRuleEngine, Move
+
+from controller.GameRuleEngine import GameRuleEngine
+from models.Move import Move
+# from psr import GameRuleEngine, Move
 
 class TestGameRuleEngine(unittest.TestCase):
 
