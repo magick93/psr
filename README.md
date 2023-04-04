@@ -20,4 +20,4 @@ The game of Paper, Scissors, Rock embodies a fundamental truth of existence: the
 
 `python psr.py play`
 
-If you need help, ``python psr.py rules` or `python psr.py --help`
+If you need help, `python psr.py rules` or `python psr.py --help`
