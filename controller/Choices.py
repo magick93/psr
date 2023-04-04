@@ -13,13 +13,10 @@ class ChoiceAction:
 
         match user_choice:
             case 'p':
-                print("You chose Paper.")
                 Play.play_game(Move.PAPER)
             case 's':
-                print("You chose Scissors.")
                 Play.play_game(Move.SCISSORS)
             case 'r':
-                print("You chose Rock.")
                 Play.play_game(Move.ROCK)
 
             case 'e':
