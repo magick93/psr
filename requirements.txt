@@ -1,0 +1,4 @@
+pydantic==1.10.7
+colorama==0.4.6
+typer==0.7.0
+ruff==0.0.260
