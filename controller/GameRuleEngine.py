@@ -2,6 +2,8 @@ from pydantic import BaseModel, root_validator, validator
 from models.Move import Move
 import sqlite3 as sl
 
+from models.Result import Result
+
 
 class GameRuleEngine(BaseModel):
     human_player: Move
@@ -21,15 +23,25 @@ class GameRuleEngine(BaseModel):
         return value
 
 
-    def determine_winner(self):
+    def determine_winner(self) -> Result:
         if self.human_player == self.computer_player:
             return "It's a tie!"
 
         rules = {
-            Move.PAPER: {Move.ROCK: "You win!", Move.SCISSORS: "Computer wins!"},
-            Move.SCISSORS: {Move.PAPER: "You win!", Move.ROCK: "Computer wins!"},
-            Move.ROCK: {Move.SCISSORS: "You win!", Move.PAPER: "Computer wins!"},
+            Move.PAPER: {
+                Move.ROCK: Result.WIN, 
+                Move.SCISSORS: Result.LOSE
+            },
+            Move.SCISSORS: {
+                Move.PAPER: Result.WIN, 
+                Move.ROCK: Result.LOSE}
+            ,
+            Move.ROCK: {
+                Move.SCISSORS: Result.WIN, 
+                Move.PAPER: Result.LOSE}
+            
         }
+
 
         # Extensbility
         # rules = {
@@ -44,4 +56,4 @@ class GameRuleEngine(BaseModel):
         if rules[self.human_player].get(self.computer_player):
             return rules[self.human_player][self.computer_player]
         else:
-            return "Invalid moves"
+            return Result.INVALID

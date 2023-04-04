@@ -2,6 +2,7 @@
 
 import random
 from controller.GameRuleEngine import GameRuleEngine
+from controller.Score import ScoreContext
 from models.Move import Move
 
 
@@ -36,4 +37,7 @@ class Play:
         # Print the winner of the game and return it as a string
         if winner:
             print(winner)
+
+        score = ScoreContext()
+        score.update_score(winner)
         return winner

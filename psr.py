@@ -3,6 +3,7 @@ import time
 
 import typer
 from controller.Choices import ChoiceAction
+from controller.Score import ScoreContext
 
 
 app = typer.Typer()
@@ -63,9 +64,11 @@ def begin_game(iterations: int = 1):
     Returns:
         None
     """
-
+    score_context = ScoreContext()
     for i in range(iterations):
         ChoiceAction.choose()
+    current_score = score_context.get_score()
+    print(f"Wins: {current_score['wins']}, Losses: {current_score['losses']}, Ties: {current_score['ties']}")
    
     
 
