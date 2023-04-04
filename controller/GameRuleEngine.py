@@ -1,6 +1,5 @@
 from pydantic import BaseModel, root_validator, validator
 from models.Move import Move
-import sqlite3 as sl
 
 from models.Result import Result
 
